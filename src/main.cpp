@@ -1,18 +1,16 @@
 #include <Arduino.h>
+#include "host/host.h"
 
-// put function declarations here:
-int myFunction(int, int);
+#if (EMU_HOST_VERSION < 100)
+#error "Host is too old, please update"
+#endif
+
+Host_t host;
 
 void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+  host.init();
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-}
-
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
 }
