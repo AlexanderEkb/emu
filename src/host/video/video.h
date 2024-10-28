@@ -12,7 +12,7 @@ typedef enum PixelFormat_t
   PIXEL_FORMAT_I8,      // 8-bit indexed
   PIXEL_FORMAT_RGB222,  // Simple VGA implementation
   PIXEL_FORMAT_RGB565   // Most popular format for cheap widespread TFTs
-};
+} PixelFormat_t;
 
 typedef struct VideoModeDesc_t
 {
@@ -28,12 +28,13 @@ class Video_t
   public:
     virtual bool init();
     virtual uint32_t getModesCount();
-    virtual bool getModeDesc(uint32_t mode, VideoModeDesc_t & buffer);
+    virtual VideoModeDesc_t const * getModeDesc(uint32_t mode);
 
     virtual uint32_t getWidth();
     virtual uint32_t getHeight();
     virtual PixelFormat_t getPixelFormat();
     
+    virtual void setVideoMode(uint32_t mode);
     virtual void * getScanline(uint32_t line);
 };
 

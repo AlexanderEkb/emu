@@ -10,6 +10,7 @@
 class Host_t
 {
   public:
+    Host_t(Video_t *video) : video(video) {};
     Video_t    *video;
     Keyboard_t *keyboard;
     Storage_t  *storage;
